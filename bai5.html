@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<! Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ
+Xếp hạng sẽ dựa theo điểm trung bình của 3 đầu điểm
+Từ 8.0 trở lên được loại Giỏi
+Từ 6.0 trở lên được loại Khá
+Từ 4.0 trở lên được loại Trung Bình
+Từ 4.0 trở xuống được loại Yếu !>
+
+<span>Điểm kiểm tra</span>
+<input type="number" id="point1" value="Điểm kiểm tra" >
+<span>Điểm thi giữa kỳ</span>
+<input type="number" id="point2" value=" Điểm thi giữa kỳ ">
+<span>Điểm thi cuối kỳ</span>
+<input type="number" id="point3" value=" Điểm thi cuối kỳ ">
+<button onclick="diemThi()">Xem</button>
+<p type="text" name="display" id="display" align="left"></p>
+
+<script>
+    function diemThi () {
+    let a = parseInt(document.getElementById('point1').value);
+    let b = parseInt(document.getElementById('point2').value);
+    let c = parseInt(document.getElementById('point3').value);
+    let average = (a + b + c)/3.0;
+
+
+    if (0 <= a && a <= 10.0 && 0<= b && b <= 10.0 && 0<= c && c <= 10.0){
+        if (average >= 8.0 && average <= 10.0) {
+            document.getElementById("display").innerHTML = 'Hạng Giỏi';
+        } else if (average >= 6.0) {
+            document.getElementById("display").innerHTML = 'Hạng Khá';
+        } else if (average >=4.0){
+            document.getElementById("display").innerHTML = 'Hạng Trung Bình';
+        } else if (average >=0) {
+            document.getElementById("display").innerHTML = 'Hạng Yếu';
+        } else {
+            document.getElementById("display").innerHTML = 'Nhập sai';
+        }   
+    } else {
+        document.getElementById("display").innerHTML = 'Nhập sai';
+    }}
+
+
+
+</script>
+</body>
+</html>
